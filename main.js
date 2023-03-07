@@ -6,11 +6,6 @@ function createForm () {
     const form = document.createElement('form');
     formContainer.appendChild(form);
 
-    const usernameInput = document.createElement('input');
-    usernameInput.placeholder = "Namn"
-    usernameInput.id = "name"
-    form.appendChild(usernameInput);
-
     const emailInput = document. createElement('input');
     emailInput.placeholder = "Email";
     emailInput.id = "email"
@@ -26,17 +21,15 @@ function createForm () {
 
 function sendValue(){
     console.log("hh")
-    let nameInput = document.querySelector('#name');
     let emailInput = document.querySelector('#email')
-    let name = nameInput.value;
     let email = emailInput.value;
-    let user = {name: name, email: email}
+    let userEmail = {email: email}
 
     fetch('http://localhost:3000/email', {
    method: "POST",
    headers: {
       'Content-Type': 'application/json',
    },
-   body: JSON.stringify(user)
+   body: JSON.stringify(userEmail)
 }) 
 }
